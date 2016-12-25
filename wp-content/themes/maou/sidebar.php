@@ -10,8 +10,8 @@
 			<button>Подать заявку</button>
 		</div>
 		<div id="right-menu">
-			<ul>
-				<li>Подпункт меню</li>
+			<!-- <ul> -->
+			<!-- 	<li>Подпункт меню</li>
 				<li>Подпункт меню</li>
 				<li>Подпункт меню</li>
 				<li>Подпункт меню</li>
@@ -37,9 +37,12 @@
 				</div>
 				<li>Подпункт меню</li>
 				<li>Подпункт меню</li>
-				<li>Подпункт меню</li>
-			</ul>
+				<li>Подпункт меню</li> -->
+				<?php
+					wp_nav_menu('menu=header_menu');
+				?>
+			<!-- </ul> -->
 		</div>
-														<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : ?>
-														<?php endif; ?>
-													</div>
+		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : ?>
+		<?php endif; ?>
+	</div>

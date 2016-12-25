@@ -1,5 +1,7 @@
 <?php
 
+require 'walker.php';
+
 //Фильтр от спама
 add_filter('pre_comment_on_post', 'verify_spam');
 function verify_spam($commentdata) {

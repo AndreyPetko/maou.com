@@ -38,16 +38,21 @@
 			</div>
 			<div id="nav">
 			<?php
-			    if ( function_exists( 'wp_nav_menu' ) )
-			        wp_nav_menu( 
-				        array( 
-				        'theme_location' => 'header_menu',
-				        'fallback_cb'=> 'header_menu',
-				        'container' => 'ul',
-				        'menu_id' => '',
-				        'menu_class' => '') 
-					);
-			    else custom_menu();
+			  //   if ( function_exists( 'wp_nav_menu' ) )
+			  //       wp_nav_menu( 
+				 //        array( 
+				 //        'theme_location' => 'header_menu',
+				 //        'fallback_cb'=> 'header_menu',
+				 //        'container' => 'ul',
+				 //        'menu_id' => '',
+				 //        'menu_class' => '') 
+					// );
+			  //   else custom_menu();
+
+				?>
+
+				<?php
+					wp_nav_menu('menu=header_menu');
 				?>
 
 				<!-- <ul>

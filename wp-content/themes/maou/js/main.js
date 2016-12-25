@@ -2,7 +2,9 @@ $(document).ready(function() {
 
 	var owl = $("#owl-demo");
 
-	owl.owlCarousel({
+
+  if(!owl.empty()) {
+    owl.owlCarousel({
       items : 1, //10 items above 1000px browser width
       itemsDesktop : [1000,1], //5 items between 1000px and 901px
       itemsDesktopSmall : [900,1], // betweem 900px and 601px
@@ -12,7 +14,9 @@ $(document).ready(function() {
       // navigationText: ['svf', 'vfdv'],
      itemsMobile : [350,1] // itemsMobile disabled - inherit from itemsTablet option
    });
-	owl.trigger('owl.play',3000);
+    owl.trigger('owl.play',3000);
+  }
+
   // // Custom Navigation Events
   // $(".next").click(function(){
   // 	owl.trigger('owl.next');
@@ -29,9 +33,9 @@ $(document).ready(function() {
   });
   $( "#nav-mob > ul li" ).click(function() {
     event.preventDefault();
-        if($( this ).next().is('div')){
-    $( this ).next().toggle('slow');
-  }
+    if($( this ).next().is('div')){
+      $( this ).next().toggle('slow');
+    }
   });
 
   var dropNav = document.getElementById('nav');
@@ -40,22 +44,22 @@ $(document).ready(function() {
     dropNavLi[i].addEventListener('mouseover', function(){
      var dropDiv = this.querySelector('ul');
      if(dropDiv){
-     dropDiv.style.display = 'block';
+       dropDiv.style.display = 'block';
 
-     dropDiv.addEventListener('mouseover', function(){
-      dropDiv.style.display = 'block';
-    })
-     dropDiv.addEventListener('mouseout', function(){
-      dropDiv.style.display = 'none';
-    })
-   }
+       dropDiv.addEventListener('mouseover', function(){
+        dropDiv.style.display = 'block';
+      })
+       dropDiv.addEventListener('mouseout', function(){
+        dropDiv.style.display = 'none';
+      })
+     }
    });
     dropNavLi[i].addEventListener('mouseout', function(){
      var dropDiv = this.querySelector('ul');
      if(dropDiv){
       dropDiv.style.display = 'none';
-     }
-   })
+    }
+  })
   }
 
 
