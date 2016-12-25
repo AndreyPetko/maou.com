@@ -370,7 +370,7 @@ overflow: hidden;
 	.application input, textarea, :focus{
 		outline: none;
 	}
-	.application button{
+	.application input[type="submit"]{
 		background-color: #ffb047;
 		height: 35px;
 		width: 135px;
@@ -383,7 +383,7 @@ overflow: hidden;
 		height: 35px;
 
 	}
-	.application button:hover{
+	.application input[type="submit"]:hover{
 		background-color: #eca13e;
 		border-radius: 15px;
 

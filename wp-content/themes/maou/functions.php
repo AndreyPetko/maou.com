@@ -110,6 +110,52 @@ function the_truncated_post($symbol_amount) {
 	echo substr($filtered, 0, strrpos(substr($filtered, 0, $symbol_amount), ' ')) . '...';
 }
 
+// _____form ________
 
+function myform_action_callback() {
+global $wpdb;
+global $mail;
+$nonce=$_POST['nonce'];
+$rtr='';
+if (!wp_verify_nonce( $nonce, 'myform_action-nonce'))wp_die('{"error":"Error. Spam"}');
+$message="";
+$to="nasskapetko@gmail.com"; // заменить на свою почту
+$headers = "Content-type: text/html; charset=utf-8 \r\n";
+$headers.= "From: ".$_SERVER['SERVER_NAME']." \r\n";
+$subject="Сообщение с сайта ".$_SERVER['SERVER_NAME'];
+do_action('plugins_loaded');
+if (!empty($_POST['name']) && !empty($_POST['mess']) && !empty($_POST['email'])){
+$message.="Имя: ".$_POST['name'];
+$message.="<br/>E-mail: ".$_POST['email'];
+$message.="<br/>Сообщение:<br/>".nl2br($_POST['mess']);
+if(wp_mail($to, $subject, $message, $headers)){
+$rtr='{"work":"Сообщение отправлено!","error":""}';
+}else{
+$rtr='{"error":"Ошибка сервера."}';
+}
+}else{
+$rtr='{"error":"Все поля обязательны к заполнению!"}';
+}
+echo $rtr;
+exit;
+}
+add_action('wp_ajax_nopriv_myform_send_action', 'myform_action_callback');
+add_action('wp_ajax_myform_send_action', 'myform_action_callback');
+function myform_stylesheet(){
+wp_enqueue_style("myform_style_templ",get_bloginfo('stylesheet_directory')."/css/styleform.css","0.1.2",true);
+wp_enqueue_script("myform_script_temp",get_bloginfo('stylesheet_directory')."/js/scriptform.js",array('jquery'),"0.1.2",true);
+wp_localize_script("myform_script_temp", "myform_Ajax", array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'nonce' => wp_create_nonce('myform_action-nonce') ) );
+}
+add_action( 'wp_enqueue_scripts', 'myform_stylesheet' );
+function formZak() {
+$rty='<div class="application">';
+$rty.=' <p>Подать заявку</p><p>Имя</p><input id="name" type="text" />';
+$rty.='<p> Email</p><input id="email" type="text" />';
+$rty.='<p>Комментарий</p><textarea id="mess" ></textarea>';
+$rty.='<input type="submit" onclick="myform_ajax_send(\'#name\',\'#email\',\'#mess\'); return false;" value="Отправить"/>';
+$rty.='</div>';
+return $rty;
+}
+add_shortcode( 'formZak', 'formZak' );
 
 ?>

@@ -124,5 +124,6 @@
 
 <link rel="stylesheet" href="/wp-content/themes/maou/owl-carousel/owl.carousel.css">
 <script src="/wp-content/themes/maou/owl-carousel/owl.carousel.js"></script>
+<script src="/wp-content/themes/maou/js/form.js"></script>
 </body>
 </html>
