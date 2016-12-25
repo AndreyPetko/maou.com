@@ -2,15 +2,24 @@
 <div class="row">
 	<div class="col-md-9">
 		<div id="owl-demo" class="owl-carousel owl-theme">
-			<div class="item"><img src="/wp-content/themes/maou/images/slide.jpg"></div>
-			<div class="item"><img src="/wp-content/themes/maou/images/slide.jpg"></div>
-			<div class="item"><img src="/wp-content/themes/maou/images/slide.jpg"></div>
+		<?php 
+			$images = getSliderImages();
+
+			foreach ($images as $key => $image) {
+				echo "<div class='item'><img src='";
+				echo $image;
+				echo "'></div>";
+			}
+		?>
+			<!-- <div class="item"><img src="/wp-content/themes/maou/images/slide.jpg"></div> -->
+			<!-- <div class="item"><img src="/wp-content/themes/maou/images/slide.jpg"></div> -->
+			<!-- <div class="item"><img src="/wp-content/themes/maou/images/slide.jpg"></div> -->
 		</div>
 		<div class="information">
 			<div class="row">
 				<?php $the_query = new WP_Query('p=68'); ?>
 				<?php while  ($the_query->have_posts() ) : $the_query->the_post(); ?>
-					<h5><?php the_title(); ?></h5>    
+					<h5><?php the_title(); ?></h5>
 					<p><?php the_truncated_post( 320 ); ?></p>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata();?>

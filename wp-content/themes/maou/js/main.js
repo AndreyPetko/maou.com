@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var owl = $("#owl-demo");
 
 
-  if(!owl.empty()) {
+  // if(!owl.empty()) {
     owl.owlCarousel({
       items : 1, //10 items above 1000px browser width
       itemsDesktop : [1000,1], //5 items between 1000px and 901px
@@ -15,7 +15,7 @@ $(document).ready(function() {
      itemsMobile : [350,1] // itemsMobile disabled - inherit from itemsTablet option
    });
     owl.trigger('owl.play',3000);
-  }
+  // }
 
   // // Custom Navigation Events
   // $(".next").click(function(){
