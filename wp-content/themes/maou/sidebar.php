@@ -1,13 +1,7 @@
 	<div class="col-md-3 right-block">
 		<div class="application">
-			<p>Подать заявку</p>
-			<p>Имя</p>
-			<input type="text" name="name">
-			<p> Email</p>
-			<input type="text" name="email">
-			<p>Комментарий</p>
-			<textarea></textarea>
-			<button>Подать заявку</button>
+		
+			<?php echo do_shortcode('[formZak]');?>
 		</div>
 		<div id="right-menu">
 			<!-- <ul> -->

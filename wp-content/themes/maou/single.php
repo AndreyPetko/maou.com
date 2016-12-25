@@ -107,45 +107,31 @@
 						</a>
 					</div>
 					<div class="row">
+						<?php if ( have_posts() ) : ?>
+						<?php
+						$id=4;
+						$n=3;
+						$recent = new WP_Query("cat=$id&showposts=$n"); 
+						while($recent->have_posts()) : $recent->the_post();
+						?>
 						<div class="col-sm-4 article-item">
-							<p>Заголовок новости заголовок 
-								новости</p>
-								<a href="article.html">
-									<img src="images/img2.jpg">
+							<a href="<?php the_permalink(); ?>">
+								<p class="article-item-title"><?php the_title(); ?></p>
+
+								<?php 
+								if ( function_exists( 'add_theme_support' ) )
+									the_post_thumbnail( array(250,9999), array('class' => 'img-school') ); 
+								?>
+							</a>
+							<p class="article-date">10 октября 2016</p>
+							<p><?php the_truncated_post( 320 ); ?></p>
+							<div class="article-button">
+								<a href="<?php the_permalink(); ?>">Читать дальше
 								</a>
-								<p class="article-date">10 октября 2016</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae libero at libero pharetra blandit vitae in libero. Fusce at quam laoreet, mollis nibh in, suscipit neque. </p>
-								<div class="article-button">
-									<a href="article.html"> Читать дальше
-									</a>
-								</div>
 							</div>
-							<div class="col-sm-4 article-item">
-								<p>Заголовок новости заголовок 
-									новости</p>
-									<a href="article.html">
-										<img src="images/img2.jpg">
-									</a>
-									<p class="article-date">10 октября 2016</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae libero at libero pharetra blandit vitae in libero. Fusce at quam laoreet, mollis nibh in, suscipit neque. </p>
-									<div class="article-button">
-										<a href="article.html"> Читать дальше
-										</a>
-									</div>
-								</div>
-								<div class="col-sm-4 article-item">
-									<p>Заголовок новости заголовок 
-										новости</p>
-										<a href="article.html">
-											<img src="images/img2.jpg">
-										</a>
-										<p class="article-date">10 октября 2016</p>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae libero at libero pharetra blandit vitae in libero. Fusce at quam laoreet, mollis nibh in, suscipit neque. </p>
-										<div class="article-button">
-											<a href="article.html"> Читать дальше
-											</a>
-										</div>
-									</div>
+						</div>
+					<?php endwhile; ?>
+				<?php endif;?>
 								</div>
 							</div>
 						</div>
