@@ -1,99 +1,21 @@
 
 
-<?php // Do not delete these lines
-if ('comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-	die ('Please do not load this page directly. Thanks!');
+<div class="article-coments">
+	<?php if (have_posts()) : while (have_posts()) : the_post();
+	update_post_caches($posts); ?>
+	<?php wp_list_comments('type=comment&callback=custom_comment'); ?>
+<?php endwhile; endif; ?>
+<?php //wp_list_comments(); ?>
+</div>
 
-	if (!empty($post->post_password)) { // if there's a password
-		if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) {  // and it doesn't match the cookie
-		?>
 
-		<p class="nocomments">Введите пароль.</p>
-
-		<?php
-		return;
-	}
-}
-
-/* This variable is for alternating comment background */
-$oddcomment = '';
-?>
-
-<br />
-<?php if ($comments) : ?>
-
-	<div class="commentlist ">
-		<?php wp_list_comments('avatar_size=0'); ?>
+<div class="leave-coment">
+	<div class="leave-coment-head">
+		Оставить комментарий
 	</div>
-
-<?php else : // this is displayed if there are no comments so far ?>
-
-	<?php if ('open' == $post->comment_status) : ?>
-		<!-- If comments are open, but there are no comments. -->
-
-	<?php else : // comments are closed ?>
-		<!-- If comments are closed. -->
-		<p>Комментарии к этой записи закрыты!</p>
-
-	<?php endif; ?>
-<?php endif; ?>
-
-
-<?php if ('open' == $post->comment_status) : ?>
-	<br />
-	<div id="respond">
-		<div class="cancel-comment-reply">
-			<small><?php cancel_comment_reply_link(); ?></small>
-		</div>
-
-		<?php if ( get_option('comment_registration') && !$user_ID ) : ?>
-			<p>Пожалуйста,  <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">зарегистрируйтесь </a> для комментирования.</p>
-		<?php else : ?>
-
-			<!--тут форма-->
-
-
-			<div class="add-coment">
-				<div class="title">
-					Добавить комментарий
-				</div>
-					<div class="form-left">
-						<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" class="form">
-
-							<?php if ( $user_ID ) : ?>
-
-								<p>Здравствуйте, <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Выйти">Выход &raquo;</a></p>
-
-							<?php else : ?>
-
-								<label>	<p>Имя</p></label>
-								<div class="input-prepend">
-									<span class="add-on"><i class="icon-user"></i></span><input type="text" name="author" placeholder="Имя">
-								</div>
-
-								<label><p> Email</p></label>
-								<div class="input-prepend">
-									<span class="add-on"><i class="icon-envelope"></i></span><input type="text" name="email" placeholder="Email">
-								</div>
-
-<?php endif; ?>
-
-<textarea id="comment" style="display: none;" name="comment"></textarea>
-
-<label><p>Комментарий</p></label>
-<textarea id="real-comment" name="real-comment"></textarea>
-
-<?php if( function_exists(checkbot_show) ) { checkbot_show(); } ?>
-<p><input name="submit" type="submit" id="submit" tabindex="5" value="Отправить" class="btn btn-success" />
-	<?php comment_id_fields(); ?>
-</p>
-<?php do_action('comment_form', $post->ID); ?>
-
-</form>
-
+	<div class="article-coments-image">
+	</div>
+	<div class="leave-coment-right">
+		<?php comment_form(); ?>
+	</div>
 </div>
-</div>
-<?php endif; // If registration required and not logged in ?>
-</div>
-
-<?php endif; // if you delete this the sky will fall on your head ?>

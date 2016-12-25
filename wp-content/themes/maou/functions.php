@@ -4,12 +4,57 @@ require 'walker.php';
 
 //Фильтр от спама
 add_filter('pre_comment_on_post', 'verify_spam');
-function verify_spam($commentdata) {
-	$spam_test_field = trim($_POST['comment']);
-	if(!empty($spam_test_field)) wp_die('Спаму нет!');
-	$comment_content = trim($_POST['real-comment']);
-	$_POST['comment'] = $comment_content;
-	return $commentdata;
+
+// function verify_spam($commentdata) {
+// 	$spam_test_field = trim($_POST['comment']);
+// 	if(!empty($spam_test_field)) wp_die('Спаму нет!');
+// 	$comment_content = trim($_POST['real-comment']);
+// 	$_POST['comment'] = $comment_content;
+// 	return $commentdata;
+// }
+
+  function custom_comment($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+    global $post;
+
+    if($comment->comment_parent) {
+      $child = 1;
+    } else {
+      $child = 0;
+    }
+
+
+    $date = date_create($comment->comment_date);
+    $date = $date->format('d.m.Y H:i');
+
+    if($child) {
+      echo '<a name="comment-' . $comment->comment_ID . '"></a><div class="article-coments-item article-coments-item-answer">
+      <div class="article-coments-image">
+        <img src="wp-content/themes/football/images/coment1.jpg">
+      </div>
+      <div class="article-coments-right">
+        <p>' . $comment->comment_author . '</p>
+        <span>' . $date . '</span>
+        <div class="clear"></div>
+        <p>' . $comment->comment_content . '</p>
+      </div>
+    </div>';
+  } else {
+    echo '<a name="comment-' . $comment->comment_ID . '"></a><div class="article-coments-item">
+    <div class="article-coments-image">
+      <img src="wp-content/themes/football/images/coment1.jpg">
+    </div>
+    <div class="article-coments-right">
+      <p>' . $comment->comment_author . '</p>
+      <span>' . $date . '</span>
+      <div class="clear"></div>
+      <p>' . $comment->comment_content . '</p>
+      <a href="' . esc_url( add_query_arg( 'replytocom', $comment->comment_ID, get_permalink( $post->ID ) ) ) . "#respond" . '"><div class="answer">Ответить</div></a>
+    </div>
+  </div>';
+
+}
+
 }
 
 
