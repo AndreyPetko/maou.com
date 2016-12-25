@@ -111,5 +111,24 @@ function the_truncated_post($symbol_amount) {
 }
 
 
+function showPostItemById($id, $item) {
+	$args = [
+		'p' => $id, 
+		'post_type' => 'any'
+	];
+
+	$my_posts = new WP_Query($args);
+
+	$post = $my_posts->posts[0];
+
+	$data = [];
+
+	$data['title'] = $post->post_title;
+	$data['content'] = $post->post_content;
+	$data['img'] =  get_the_post_thumbnail( $post->id, 'full' );
+
+	echo $data[$item];
+}
+
 
 ?>

@@ -64,13 +64,11 @@
 	<div class="information">
 		<div class="row">
 			<div class="col-md-5">
-				<img src="/wp-content/themes/maou/images/img4.jpg">
+				<?php showPostItemById(6, 'img') ?>
 			</div>
 			<div class="col-md-7">
-				<h5>Maecenas varius massa imperdiet sem dignissim, 
-					sit amet tempor massa malesuada.</h5>
-					<p>Sed at dignissim turpis, vel eleifend tortor. Pellentesque leo eros, elementum eget faucibus a, sollicitudin sed quam. Etiam elit risus, mollis id volutpat eu, gravida vulputate justo.
-						Vivamus et metus orci. Quisque bibendum efficitur volutpat. Etiam sit amet urna vitae ligula faucibus tincidunt eu eget mi. Cras suscipit faucibus lectus et scelerisque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+				<h5><?php showPostItemById(6, 'title') ?> </h5>
+					<p><?php showPostItemById(6, 'content') ?>  </p>
 					</div>
 
 				</div>
