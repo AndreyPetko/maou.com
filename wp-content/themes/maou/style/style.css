@@ -139,6 +139,7 @@
 		background-color: white;
 		display: none;
 	}
+	
 	#nav ul ul li{
 		width: 100%;
 	}
@@ -169,6 +170,9 @@
 	}
 	#nav ul li:hover{
 		background-color: #369158;
+	}
+	#nav .subMenu{
+		margin-left: 300px;
 	}
 	#nav-mob{
 		display: none;
@@ -211,6 +215,7 @@
 	#nav-mob ul div{
 		display: none;
 	}
+
 	/*_________________________nav________________________________*/
 	/*_________________________information________________________________*/
 	.information{
