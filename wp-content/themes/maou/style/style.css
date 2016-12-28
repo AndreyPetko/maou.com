@@ -128,16 +128,19 @@
 
 
 	}
-
-
 	#nav ul  ul {
 		padding: 0;
 		position: absolute;
-		top: 50px;
+	/*	top: 50px;*/
 		z-index: 9999;
 		width: 300px;
 		background-color: white;
 		display: none;
+	}
+
+	#nav ul  ul ul{
+		margin-left: 300px;	
+		margin-top: -30px;
 	}
 	
 	#nav ul ul li{
@@ -192,10 +195,14 @@
 		height: 5px;
 		margin-top: 3px;
 	}
-	#nav-mob ul{
+	#nav-mob  ul{
 		list-style: none;
 		display: none;
+		
 	}
+	/*.menu-menu-1-container{
+		display: none;
+	}*/
 	#nav-mob ul li{
 		width: 100%;
 		border-bottom:2px solid #e5f2e6;
@@ -209,10 +216,10 @@
 		height: 30px;
 		text-decoration: none;
 	}
-	#nav-mob ul div li a{
+	#nav-mob ul li ul li a{
 		color:#9ad0a2;
 	}
-	#nav-mob ul div{
+	#nav-mob ul .sub-menu{
 		display: none;
 	}
 
@@ -229,6 +236,9 @@
 		font-size: 14px;
 		color: #504b46;
 	}
+	.information img{
+		height: auto;
+	}
 	.information p{
 		font-size: 12px;
 		color: #504b46;
@@ -237,7 +247,14 @@
 	.col-md-5{
 		text-align: center;
 	}
-
+#owl-demo{
+	height: 400px;
+	overflow: hidden;
+}
+#owl-demo img{
+	width: 100%;
+	height: auto;
+	}
 	/*_________________________information________________________________*/
 
 	/*_________________________news________________________________*/
@@ -250,6 +267,7 @@
 		position: relative;
 		text-transform: uppercase;
 	}
+
 	.title .title-button{
 		position: absolute;
 		right: 0;
@@ -291,6 +309,9 @@ overflow: hidden;
 	}
 		.article-item a img{
 			width: 100%;
+			max-width: 270px;
+			height: auto;
+
 			}
 	.article-item:hover .article-item-title{
 		color: #369158;
@@ -416,24 +437,36 @@ overflow: hidden;
 	#right-menu ul  .dropdown-right{
 		border-right: 20px solid #b5dcba;
 	}
-	#right-menu ul div ul li{
+	#right-menu ul li a{
+		color: black;
+		width: 100%;
+		display: block;
+		text-decoration: none;
+	}
+	/*#right-menu ul li:hover a{
+		color: white;
+		text-decoration: none;
+	}*/
+	
+	#right-menu ul li ul li{
 		margin-left: 20px;
 		border:none;
 	}
-	#right-menu ul div{
+	#right-menu ul ul{
 		display: none;
 	}
-	#right-menu ul div ul li:hover{
+	#right-menu ul ul li{
 		background-color: #f1f9f2;
 		border:none;
 		color: #504b46;
 	}
-	#right-menu ul li:hover{
+	
+	/*#right-menu ul li:hover{
 		background-color: #369158;
 		border:2px solid #369158;
 		border-left: 10px solid #369158;
 		color: white;
-	}
+	}*/
 	/*_________________________right-menu________________________________*/
 
 	/*_________________________footer________________________________*/
@@ -449,21 +482,37 @@ overflow: hidden;
 		font-size: 14px;
 		margin-top: 20px;
 	}
-	#footer .footer-item ul{
-		list-style: none;
+		#footer .footer-item {
+	padding: 20px;
+}
+	#footer .footer-item > ul{
+
+
 	}
-	#footer .footer-item ul li{
+	#footer .footer-item ul li {
+display: inline-block;
+width: 30%;
+margin-top: 10px;
+		list-style: none;
+		text-align: center;
+	}
+	#footer .footer-item ul ul{
+		display: none;
+	}
+	#footer .footer-item ul li a{
 		font-size: 12px;
+/*		text-decoration: none;*/
 		margin:5px 0;
 		color: white;
 	}
-	#footer .footer-item ul li:hover{
-		list-style-image: url(images/list.png);
+	#footer .footer-item ul li a:hover{
+	/*	list-style-image: url(images/list.png);*/
 	}
 	#footer .footer-social li{
 		width: 40%;
 		float: left;
 		opacity: 0.7;
+		margin-top: 10px;
 	}
 	#footer .footer-social li:hover{
 		list-style-image: none!important;
@@ -509,7 +558,8 @@ overflow: hidden;
 		width: 40%;
 	}
 	.breadcrumbs ul{
-		list-style-image: url(images/list.png);
+		list-style-image: url(/wp-content/themes/maou/images/list.png);
+		list-style-type: none;
 
 	}
 	.breadcrumbs ul li{
@@ -591,6 +641,7 @@ overflow: hidden;
 		line-height: 34px; 
 		min-width: 150px;
 	}
+
 	.add-coment .form{
 		width: 60%;
 		margin-left: 100px;
@@ -621,7 +672,7 @@ overflow: hidden;
 	.add-coment input[type="submit"]{
 		background-color: #ffb047;
 		height: 35px;
-		width: 135px;
+		width:200px;
 		transition: 0.5s All;
 		color: white;
 		border:none;
@@ -720,7 +771,7 @@ overflow: hidden;
 		}
 		.breadcrumbs {
 			width: 80%;
-			margin:15px 0 15px 35px;;
+			margin:15px 0 15px 35px;
 		}
 		#doc-button{
 			width: 100%;

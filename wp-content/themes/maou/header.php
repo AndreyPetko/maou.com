@@ -13,10 +13,10 @@
 <body>
 	<div class="container">
 		<div class="header">
-		<a href="/">
-			<div class="logo-div">
-				<img src="/wp-content/themes/maou/images/logo.png">
-			</div>
+			<a href="/">
+				<div class="logo-div">
+					<img src="/wp-content/themes/maou/images/logo.png">
+				</div>
 			</a>
 			<div class="header-left">
 				<div class="header-left-top">
@@ -37,64 +37,25 @@
 				</div>
 			</div>
 			<div id="nav">
-			<?php
-			  //   if ( function_exists( 'wp_nav_menu' ) )
-			  //       wp_nav_menu( 
-				 //        array( 
-				 //        'theme_location' => 'header_menu',
-				 //        'fallback_cb'=> 'header_menu',
-				 //        'container' => 'ul',
-				 //        'menu_id' => '',
-				 //        'menu_class' => '') 
-					// );
-			  //   else custom_menu();
+				<?php
 
 				?>
 
 				<?php
-					wp_nav_menu('menu=header_menu');
+				wp_nav_menu('menu=header_menu');
 				?>
 
-			
+
 			</div>
 			<div id="nav-mob">
 				<div id="nav-mob-button"><div></div><div></div><div></div></div>
-				<ul>
-					<li><a href="">Главная</a></li>
-					<li><a href="">О нас</a></li>
-					<div>
-						<ul>
-							<li><a href="">Подпункт второго уровня меню</a></li>
-							<li><a href="">Подпункт второго уровня меню</a></li>
-							<li><a href="">Подпункт второго уровня меню</a></li>
-							<li><a href="">Длинный длинный подпункт второго уровня меню</a></li>
-							<li><a href="">Подпункт второго уровня меню</a></li>
-						</ul>
-					</div>
-					<li><a href="">Деятельность</a></li><div>
-					<ul>
-						<li><a href="">Подпункт второго уровня меню</a></li>
-						<li><a href="">Подпункт второго уровня меню</a></li>
-						<li><a href="">Подпункт второго уровня меню</a></li>
-						<li><a href="">Длинный длинный подпункт второго уровня меню</a></li>
-						<li><a href="">Подпункт второго уровня меню</a></li>
-					</ul>
-				</div>
-				<li><a href="">Аттестация</a></li>
-				<li><a href="">Коллектив</a></li>
-				<div>
-					<ul>
-						<li><a href="">Подпункт второго уровня меню</a></li>
-						<li><a href="">Подпункт второго уровня меню</a></li>
-						<li><a href="">Подпункт второго уровня меню</a></li>
-						<li><a href="">Длинный длинный подпункт второго уровня меню</a></li>
-						<li><a href="">Подпункт второго уровня меню</a></li>
-					</ul>
-				</div>
-				<li><a href="">Условия</a></li>
-				<li><a href="">Финансирование</a></li>
-				<li><a href="">Документы</a></li>
-				<li><a href="">Е-сервисы</a></li>
+				<?php
+				?>
 
-			</ul>
+				<?php
+				wp_nav_menu('menu=header_menu');
+				?>
+
+
+				
 		</div>

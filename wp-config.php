@@ -20,16 +20,16 @@
 
 // ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
 /** Имя базы данных для WordPress */
-define('DB_NAME', 'maou');
+define('DB_NAME', 'streamla_maou');
 
 /** Имя пользователя MySQL */
-define('DB_USER', 'root');
+define('DB_USER', 'streamla_maou');
 
 /** Пароль к базе данных MySQL */
-define('DB_PASSWORD', '1234');
+define('DB_PASSWORD', 'dd99r5aq');
 
 /** Имя сервера MySQL */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'streamla.mysql.ukraine.com.ua');
 
 /** Кодировка базы данных для создания таблиц. */
 define('DB_CHARSET', 'utf8mb4');

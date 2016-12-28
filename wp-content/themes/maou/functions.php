@@ -15,7 +15,7 @@ add_filter('pre_comment_on_post', 'verify_spam');
 
 
   function getSliderImages() {
-    $query = new WP_Query( array( 'cat' => 5 ) );
+    $query = new WP_Query( array( 'cat' => 6 ) );
     $images = [];
     global $post;
 
@@ -114,12 +114,32 @@ function the_breadcrumb() {
     {
         register_nav_menus(
             array(
-                'custom-menu'=>__('Custom menu'),
+                'custom-menu'=>__('header_menu'),
+                'footer-nav'=>__('footer_nav'),
+                //  'footer-menu2'=>__('footer_nav2'),
+                //   'footer-menu3'=>__('footer_nav3'),
+                //    'footer-menu4'=>__('footer_nav4'),
+                //    'footer-menu5'=>__('footer_nav5'),
                 )
             );
     }
 
-    function custom_menu(){
+    // function custom_menu(){
+    //     echo '<ul>';
+    //     wp_list_pages('title_li=&');
+    //     echo '</ul>';
+    // }
+   
+    //   if ( function_exists( 'register_nav_menus' ) )
+    // {
+    //     register_nav_menus(
+    //         array(
+    //             'custom-menu'=>__('header_menu'),
+    //             )
+    //         );
+    // }
+
+    function header_menu(){
         echo '<ul>';
         wp_list_pages('title_li=&');
         echo '</ul>';
@@ -149,20 +169,7 @@ function the_breadcrumb() {
     add_theme_support( 'post-thumbnails' );
     add_theme_support('menus');
 
-    if ( function_exists( 'register_nav_menus' ) )
-    {
-        register_nav_menus(
-            array(
-                'custom-menu'=>__('header_menu'),
-                )
-            );
-    }
-
-    function header_menu(){
-        echo '<ul>';
-        wp_list_pages('title_li=&');
-        echo '</ul>';
-    }
+ 
 
     function the_truncated_post($symbol_amount) {
         $filtered = strip_tags( preg_replace('@<style[^>]*?>.*?</style>@si', '', preg_replace('@<script[^>]*?>.*?</script>@si', '', apply_filters('the_content', get_the_content()))) );
@@ -180,17 +187,18 @@ function the_breadcrumb() {
 
         $my_posts = new WP_Query($args);
 
-        $post = $my_posts->posts[0];
+        $postItem = $my_posts->posts[0];
 
         $data = [];
 
-        $data['title'] = $post->post_title;
-        $data['content'] = $post->post_content;
-        $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->id), 'post'); 
+        $data['title'] = $postItem->post_title;
+        $data['content'] = $postItem->post_content;
+        $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($postItem->ID), 'post'); 
         $data['img'] =  '<img src="' . $thumb[0] . '">';
 
         echo $data[$item];
     }
+
 
 
     function myform_action_callback() {
