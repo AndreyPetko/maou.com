@@ -15,15 +15,20 @@
 								
 							</ul>
 						</div>
-						<div id="doc-button">
-							Нормативные документы
-						</div>
+						
 					</div>
 					<div class="title">
 						<p><?php the_title(); ?></p>
+						<div class="title-button">
+							<?php the_date(); ?>
+						</div>
 
 					</div>
 					<div class="article-content">
+					<div class="author">
+					Автор статьи: <?php the_author(); ?>
+					</div>
+					<div class="clear"></div>
 
 						<?php the_content(); ?>
 					</div>
@@ -32,82 +37,17 @@
 
 			<?php endwhile; ?>
 		<?php endif; ?>
-		<div class="coments">
-			<div class="coments-title">
-				 <p>Комментарии</p>
-			</div>
-			<div class="coments-div">
-				<?php comments_template(); ?>
-				<div class="coment-item">
-					<div class="left-block">
-						<div class="coment-name">
-							Ирина
-						</div>
-						<div class="date">
-							<p>10 октября 2016</p>
-						</div>
-					</div>
-					<div class="coment-txt">
-						<p>Donec rhoncus sapien vel nulla commodo semper. Maecenas ex dui, scelerisque vel ipsum sed, porttitor lobortis lacus. In hac habitasse platea dictumst. 
-						</p>
-					</div>
-				</div>
-				<div class="coment-item">
-					<div class="left-block">
-						<div class="coment-name">
-							Ирина
-						</div>
-						<div class="date">
-							<p>10 октября 2016</p>
-						</div>
-					</div>
-					<div class="coment-txt">
-						<p>Donec rhoncus sapien vel nulla commodo semper. Maecenas ex dui, scelerisque vel ipsum sed, porttitor lobortis lacus. In hac habitasse platea dictumst. 
-						</p>
-					</div>
-				</div>
-				<div class="coment-item">
-					<div class="left-block">
-						<div class="coment-name">
-							Ирина
-						</div>
-						<div class="date">
-							<p>10 октября 2016</p>
-						</div>
-					</div>
-					<div class="coment-txt">
-						<p>Donec rhoncus sapien vel nulla commodo semper. Maecenas ex dui, scelerisque vel ipsum sed, porttitor lobortis lacus. In hac habitasse platea dictumst. 
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="add-coment">
-				<div class="title">
-					Добавить комментарий
-				</div>
-				<div class="form">
-					<div class="form-left">
-						<p>Имя</p>
-						<input type="text">
-						<p> Email</p>
-						<input type="text">
-						<p>Комментарий</p>
-						<textarea></textarea>
-						<button>Отправить</button>
-					</div>
-				</div>
-			</div>
-		</div>
+
 
 
 		<div class="article">
 			<div class="title">
 				<p>Похожие статьи</p>
-				<a href="category.html">
+				<!-- <a href="category.html">
 					<div class="title-button">
 						Все статьи
 					</div>
-				</a>
+				</a> -->
 			</div>
 			<div class="row">
 				<?php
@@ -119,21 +59,21 @@
 				<?php $news = new WP_query(); $news->query('showposts=5&cat='.$catcat.'&post__not_in[]='.$postidid.''); ?>
 				<?php while ($news->have_posts()) : $news->the_post(); ?>
 					<div class="col-sm-4 article-item">
-						<a href="<?php the_permalink(); ?>">
-							<p class="article-item-title"><?php the_title(); ?></p>
+					<a href="<?php the_permalink(); ?>">
+						<p class="article-item-title"><?php the_title(); ?></p>
 
-							<?php 
-							if ( function_exists( 'add_theme_support' ) )
-								the_post_thumbnail( array(250,9999), array('class' => 'img-school') ); 
-							?>
+						<?php 
+						if ( function_exists( 'add_theme_support' ) )
+							the_post_thumbnail( array(250,9999), array('class' => 'img-school') ); 
+						?>
+					</a>
+					<p class="article-date"><?php the_date(); ?></p>
+					<p class="article-txt"><?php the_truncated_post( 220 ); ?></p>
+					<div class="article-button">
+						<a href="<?php the_permalink(); ?>">Читать дальше
 						</a>
-						<p class="article-date">10 октября 2016</p>
-						<p><?php the_truncated_post( 320 ); ?></p>
-						<div class="article-button">
-							<a href="<?php the_permalink(); ?>">Читать дальше
-							</a>
-						</div>
 					</div>
+				</div>
 				<?php endwhile; ?>
 			</div>
 		</div>

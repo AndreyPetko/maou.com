@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="/wp-content/themes/maou/bootstrap-jq/jquery.js"></script>
 	<script src="/wp-content/themes/maou/js/main.js"></script>
+	<link href="/wp-content/themes/maou/images/favicon.ico" rel="shortcut icon" type="image/x-icon";>
 
 </head>
 <body>
@@ -20,16 +21,16 @@
 			</a>
 			<div class="header-left">
 				<div class="header-left-top">
-					<h2>МАОУ </h2><h2>Селенгинская средняя общеобразовательная школа №1</h2>
+					<h2>МАОУ </h2><h2>"Селенгинская средняя общеобразовательная школа №1"</h2>
 				</div>
 				<div class="header-left-bottom">
 					<img class="header-hid"  src="/wp-content/themes/maou/images/icon-mail.png">
 					<p class="header-hid">1selenga@gmail.com</p>
 					<img src="/wp-content/themes/maou/images/icon-phone.png">
-					<p>(30138) 43-4-36</p>
+					<p>(30138) 73-7-76</p>
 					<img class="header-hid" src="/wp-content/themes/maou/images/icon-home.png">
-					<p class="header-hid" style="margin-top:10px!important;">671200, Бурятия, Кабанский район, <br>
-						с. Кабанск, ул. Кирова 10</p>
+					<p class="header-hid" style="margin-top:10px!important;">671200, Республика Бурятия, Кабанский район, <br>
+						Селенгинск, мкр. Березовый, 55</p>
 						<div class="search search-form ">
 							<?php get_search_form(); ?>
 						</div>
@@ -58,4 +59,4 @@
 
 
 				
-		</div>
+			</div>

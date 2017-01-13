@@ -15,7 +15,7 @@
 
 	body{
 		background-color: #b5dcba;
-		background-image: url(images/bg.png )
+		background-image: url(/wp-content/themes/maou/images/bg.png )
 	}
 	*{
 		padding: 0;
@@ -25,7 +25,7 @@
 		max-width: 100%;
 	}
 	ul{
-		list-style-image: url(images/list.png);
+		list-style-image: url(/wp-content/themes/maou/images/list.png);
 	}
 
 	.container{
@@ -81,7 +81,7 @@
 	.search {
 		margin-top: 15px;
 		float: left;
-		margin-left: 90px;
+		margin-left: 30px;
 	}
 	.search-form input{
 		border:none;
@@ -267,6 +267,19 @@
 		position: relative;
 		text-transform: uppercase;
 	}
+	.author{
+		float: right;
+	}
+	.related_post_title{
+		height: 50px;
+		line-height: 50px;
+		background-color: #504b46;
+		color: white;
+		text-align: center;
+		position: relative;
+		text-transform: uppercase;
+		font-size: 14px;
+	}
 
 	.title .title-button{
 		position: absolute;
@@ -277,6 +290,15 @@
 		top:5px;
 		padding: 0 30px;
 		text-transform:none;
+	}
+	.related_post li{
+		display: inline-block;
+		margin: 20px;
+		width: 150px;
+	}
+	.related_post li a{
+		float: none;
+		display: block;
 	}
 	.title a {
 		color: white;
@@ -295,15 +317,17 @@
 	.article-item-title{
 		font-size: 16px;
 		padding: 0 10px;
+		height: 45px;
+		overflow: hidden;
 	}
 	.article-txt{
-	height: 120px;
+	height: 60px;
 overflow: hidden;
 }
 	.article-item a{
 		text-decoration: none;
 		color: black;
-		height: 180px;
+		height: 220px;
 		overflow: hidden;
 		display: block;
 	}
@@ -325,6 +349,7 @@ overflow: hidden;
 		width: 100%;
 		border:2px solid #b5dcba;
 		padding: 5px 0;
+		height: 30px;
 	}
 	.article .article-button{
 		background-color: #ffb047;
@@ -505,19 +530,23 @@ margin-top: 10px;
 		margin:5px 0;
 		color: white;
 	}
-	#footer .footer-item ul li a:hover{
-	/*	list-style-image: url(images/list.png);*/
+	#footer .footer-item ul li:hover{
+		list-style-image: url(/wp-content/themes/maou/images/list.png);
 	}
 	#footer .footer-social li{
 		width: 40%;
 		float: left;
 		opacity: 0.7;
 		margin-top: 10px;
+		transition: all, 0.3s;
 	}
 	#footer .footer-social li:hover{
+			opacity: 1;
+	}
+/*	#footer .footer-social li:hover{
 		list-style-image: none!important;
 		opacity: 1;
-	}
+	}*/
 	#footer .footer-line{
 		background-color: #b4dcba;
 		height: 3px;
@@ -544,6 +573,10 @@ margin-top: 10px;
 	#footer  .footer-txt div:last-child{
 		float: right;
 	}
+	.footer-widget{
+text-align: center;
+color: white;
+	}
 
 	/*_________________________footer________________________________*/
 
@@ -555,7 +588,7 @@ margin-top: 10px;
 		margin: 15px 0 15px 60px;
 		overflow: auto;
 		float: left;
-		width: 40%;
+	
 	}
 	.breadcrumbs ul{
 		list-style-image: url(/wp-content/themes/maou/images/list.png);
@@ -596,6 +629,10 @@ margin-top: 10px;
 		margin:15px 50px;
 		text-align: center;
 	}
+		.article-content p img{
+			margin:0 auto;
+			display: block;
+		}
 	.article-content h2, h3, h4, h5, h5{
 		color: #369158;
 		text-align: left;
@@ -613,6 +650,11 @@ margin-top: 10px;
 		border-bottom: 4px solid #504b46;
 		
 	}
+	textarea{
+resize: none;
+height: 100px;
+	}
+
 	.coments-title p{
 		color: #369158;
 		text-transform: uppercase;
@@ -648,9 +690,31 @@ margin-top: 10px;
 		margin-bottom: 30px;
 		overflow: auto;
 	}
+	.article-coments-right p:first-child{
+		background-color: #369158;
+		color: white;
+		padding: 5px 20px;
+		margin-top: 20px;
+	}
+	.article-coments-image{
+		display: none;
+	}
+	.answer {
+		color: #369158;
+
+	}
+	input{
+		height: 35px;
+	}
 	.add-coment input, textarea{
 		border:2px solid #504b46;
-		height: 35px;
+		
+		text-indent: 10px;
+		color: #9ad0a2;
+		width: 100%;
+	}
+	.wpcf7 input, textarea{
+		border:2px solid #504b46;
 		text-indent: 10px;
 		color: #9ad0a2;
 		width: 100%;
@@ -677,14 +741,38 @@ margin-top: 10px;
 		color: white;
 		border:none;
 		display: block;
-		height: 35px;
 		float: right;
+
+	}
+	.wpcf7 input[type="submit"]{
+		background-color: #ffb047;
+		height: 35px;
+		width:180px;
+		transition: 0.5s All;
+		color: white;
+		border:none;
+		display: block;
+		margin-bottom: 20px;
 
 	}
 	.add-coment input[type="submit"]:hover{
 		background-color: #eca13e;
 		border-radius: 15px;
 
+	}
+	.wpcf7 input[type="submit"]:hover{
+		background-color: #eca13e;
+		border-radius: 15px;
+
+	}
+	#arrow-up{
+		cursor: pointer;position: fixed;
+		right: 70px;
+		bottom: 220px;
+
+	}
+	.leave-coment-head{
+		display: none!important;
 	}
 	/*_________________________article________________________________*/
 
@@ -734,6 +822,9 @@ margin-top: 10px;
 			line-height: 35px;
 			top: 45px;
 
+		}
+		.article-content{
+			margin: 45px 50px 15px 50px;
 		}
 
 		.title{

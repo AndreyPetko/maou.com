@@ -15,7 +15,7 @@ add_filter('pre_comment_on_post', 'verify_spam');
 
 
   function getSliderImages() {
-    $query = new WP_Query( array( 'cat' => 6 ) );
+    $query = new WP_Query( array( 'cat' => 34 ) );
     $images = [];
     global $post;
 
@@ -44,7 +44,7 @@ add_filter('pre_comment_on_post', 'verify_spam');
     if($child) {
       echo '<a name="comment-' . $comment->comment_ID . '"></a><div class="article-coments-item article-coments-item-answer">
       <div class="article-coments-image">
-        <img src="wp-content/themes/football/images/coment1.jpg">
+        <img src="wp-content/themes/maou/images/coment1.jpg">
       </div>
       <div class="article-coments-right">
         <p>' . $comment->comment_author . '</p>
@@ -154,15 +154,15 @@ function the_breadcrumb() {
             'before_widget' => '<div id="right-sidebar">',
             'before_title' => '<h2>',
             'after_title' => '</h2><div class="text"',
-            'after_widget' => ' </ul></div></div>'
+            'after_widget' => ' </ul></div>'
             ));
         
         register_sidebar(array(
             'name' => 'Сайдбар в футере',
             'before_widget' => '<div class="footer-widget">',
-            'before_title' => '<h2>',
-            'after_title' => '</h2><div class="text">',
-            'after_widget' => '</div></div>'
+            'before_title' => '',
+            'after_title' => '',
+            'after_widget' => '</div>'
             ));
         
     }

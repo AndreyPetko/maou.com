@@ -25,11 +25,11 @@
 				
 
 				<div class="col-md-5">
-				<?php showPostItemById(74, 'img') ?>
+				<?php showPostItemById(356, 'img') ?>
 				</div>
 				<div class="col-md-7">
-					<h5><?php showPostItemById(74, 'title') ?> </h5>
-					<p><?php showPostItemById(74, 'content') ?>  </p>
+					<h5><?php showPostItemById(356, 'title') ?> </h5>
+					<p><?php showPostItemById(356, 'content') ?>  </p>
 				</div>
 
 			</div>
@@ -37,11 +37,11 @@
 		<div class="article">
 			<div class="title">
 				<p>Последние новости</p>
-				<a href="/category/news/">
+				<!-- <a href="/category/news/">
 					<div class="title-button">
 						Все новости
 					</div>
-				</a>
+				</a> -->
 			</div>
 			<div class="row">
 				<?php if ( have_posts() ) : ?>
@@ -60,8 +60,8 @@
 								the_post_thumbnail( array(250,9999), array('class' => 'img-school') ); 
 							?>
 						</a>
-						<p class="article-date">10 октября 2016</p>
-						<p><?php the_truncated_post( 320 ); ?></p>
+						<p class="article-date"><?php the_date(); ?></p>
+						<p class="article-txt"><?php the_truncated_post( 220 ); ?></p>
 						<div class="article-button">
 							<a href="<?php the_permalink(); ?>">Читать дальше
 							</a>
@@ -74,11 +74,11 @@
 	<div class="information">
 		<div class="row">
 			<div class="col-md-5">
-				<?php showPostItemById(76, 'img') ?>
+				<?php showPostItemById(358, 'img') ?>
 			</div>
 			<div class="col-md-7">
-				<h5><?php showPostItemById(76, 'title') ?> </h5>
-				<p><?php showPostItemById(76, 'content') ?>  </p>
+				<h5><?php showPostItemById(358, 'title') ?> </h5>
+				<p><?php showPostItemById(358, 'content') ?>  </p>
 			</div>
 
 		</div>
@@ -86,7 +86,7 @@
 	<div class="article">
 		<div class="title">
 			<p>Для родителей</p>
-			<a href="/category/parents/">
+			<a href="http://school1selenga.ru/category/деятельность/dlya-vas-roditeli/">
 				<div class="title-button">
 					Все статьи
 				</div>
@@ -95,7 +95,7 @@
 		<div class="row">
 			<?php if ( have_posts() ) : ?>
 				<?php
-				$id=4;
+				$id=26;
 				$n=3;
 				$recent = new WP_Query("cat=$id&showposts=$n"); 
 				while($recent->have_posts()) : $recent->the_post();
@@ -109,8 +109,8 @@
 							the_post_thumbnail( array(250,9999), array('class' => 'img-school') ); 
 						?>
 					</a>
-					<p class="article-date">10 октября 2016</p>
-					<p><?php the_truncated_post( 320 ); ?></p>
+					<p class="article-date"><?php the_date(); ?></p>
+					<p class="article-txt"><?php the_truncated_post( 220 ); ?></p>
 					<div class="article-button">
 						<a href="<?php the_permalink(); ?>">Читать дальше
 						</a>
@@ -129,23 +129,7 @@
 <?php get_footer(); ?>
 
 </div>
-<script type="text/javascript">
-		var owl = $("#owl-demo");
 
-
-  // if(!owl.empty()) {
-    owl.owlCarousel({
-      items : 1, //10 items above 1000px browser width
-      itemsDesktop : [1000,1], //5 items between 1000px and 901px
-      itemsDesktopSmall : [900,1], // betweem 900px and 601px
-      pagination : true,
-      itemsTablet: [600,1], //2 items between 600 and 0
-      // navigation: true,
-      // navigationText: ['svf', 'vfdv'],
-     itemsMobile : [350,1] // itemsMobile disabled - inherit from itemsTablet option
-   });
-    owl.trigger('owl.play',3000);
-</script>
 
 <link rel="stylesheet" href="/wp-content/themes/maou/owl-carousel/owl.carousel.css">
 <script src="/wp-content/themes/maou/owl-carousel/owl.carousel.js"></script>

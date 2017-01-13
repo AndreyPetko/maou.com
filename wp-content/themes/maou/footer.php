@@ -1,14 +1,18 @@
+
+<div id="arrow-up">
+	<img src="/wp-content/themes/maou/images/arrow-up.png">
+</div>
 <div id="footer">
 
 	<div class="col-md-10 col-sm-6 footer-item">
 		<!-- 	<h6>Заголовок</h6> -->
 		
-			<?php
-				wp_nav_menu('menu=header_menu');
-				?>
+		<?php
+		wp_nav_menu('menu=header_menu');
+		?>
 
-		</div>
-		
+	</div>
+
 	<!-- 	<div class="col-md-2 col-sm-6 footer-item">
 			<h6>Заголовок</h6>
 			<ul>
@@ -21,9 +25,9 @@
 			</ul>
 		</div> -->
 
-	
+
 		<div class="col-md-2 col-sm-6 footer-item footer-social">
-		<!-- 	<h6>Следите за нами</h6> -->
+			<!-- 	<h6>Следите за нами</h6> -->
 			<ul>
 				<li><a href="" target="_blank"><img src="/wp-content/themes/maou/images/icon-vk.png"></a></li>
 				<li><a href="" target="_blank"><img src="/wp-content/themes/maou/images/icon-tw.png"></a></li>
@@ -35,6 +39,9 @@
 			</ul>
 		</div>
 		<div class="clear"></div>
+		<div class="footer-line"></div>
+		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : ?>
+		<?php endif; ?>
 		<div class="footer-line"></div>
 		<div class="footer-txt">
 			<div><p>© МАОУ Селенгинская средняя общеобразовательная школа №1</p></div>

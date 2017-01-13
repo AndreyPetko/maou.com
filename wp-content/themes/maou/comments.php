@@ -10,9 +10,7 @@
 
 
 <div class="leave-coment">
-	<div class="leave-coment-head">
-		Оставить комментарий
-	</div>
+
 	<div class="article-coments-image">
 	</div>
 	<div class="leave-coment-right">

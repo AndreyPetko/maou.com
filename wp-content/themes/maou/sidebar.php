@@ -1,7 +1,7 @@
 	<div class="col-md-3 right-block">
 		<div class="application">
-		
-			<?php echo do_shortcode('[formZak]');?>
+		<p>Подать заявку</p>
+			<?php echo do_shortcode('[contact-form-7 id="15" title="Контактная форма 1"]');?>
 		</div>
 		<div id="right-menu">
 

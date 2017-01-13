@@ -18,21 +18,22 @@
                 </div> -->
                 <?php if ( have_posts() ) : ?>
                     <?php while ( have_posts() ) : the_post(); ?>
-                        <div class="col-sm-4 article-item">
-                            <p><?php the_title(); ?></p>
-                            <a href="<?php the_permalink(); ?>">
-                                <?php 
-                                if ( function_exists( 'add_theme_support' ) )
-                                    the_post_thumbnail( array(250,9999), array('class' => 'img-school') ); 
-                                ?>
+                       <div class="col-sm-4 article-item">
+                        <a href="<?php the_permalink(); ?>">
+                            <p class="article-item-title"><?php the_title(); ?></p>
+
+                            <?php 
+                            if ( function_exists( 'add_theme_support' ) )
+                                the_post_thumbnail( array(250,9999), array('class' => 'img-school') ); 
+                            ?>
+                        </a>
+                        <p class="article-date"><?php the_date(); ?></p>
+                        <p class="article-txt"><?php the_truncated_post( 220 ); ?></p>
+                        <div class="article-button">
+                            <a href="<?php the_permalink(); ?>">Читать дальше
                             </a>
-                            <p class="article-date">10 октября 2016</p>
-                            <p><?php the_excerpt(); ?></p>
-                            <div class="article-button">
-                                <a href="<?php the_permalink(); ?>">Читать дальше
-                                </a>
-                            </div>
                         </div>
+                    </div>
                     <?php endwhile; ?>
                 <?php else: ?>
                     <div class="alert alert-error">Поиск не дал результатов</div>
